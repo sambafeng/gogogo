@@ -1,0 +1,12 @@
+bin/*
+!bin/test
+!bin/env
+!bin/go
+/pkg
+*.test
+/tmp
+*.iml
+.idea/
+tags
+.DS_Store
+*.coverprofile

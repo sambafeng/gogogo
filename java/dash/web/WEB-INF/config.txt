@@ -1,0 +1,12 @@
+jdbcUrl = jdbc:mysql://xxx:8306/dash?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = root
+password = 123456
+devMode = false
+memcacheAddrs = 127.0.0.1:11211
+memcachePrefix = dash:
+uicInternal = http://127.0.0.1:8080
+uicExternal = http://127.0.0.1:8080
+builder = http://127.0.0.1:8788
+server = http://127.0.0.1:8980
+paasDomain = apps.io
+token = token1

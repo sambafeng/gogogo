@@ -1,0 +1,19 @@
+#config/router.yml
+status:
+  port: 8082
+  user: router
+  pass: routerPass
+
+logging:
+  file: router.log
+  syslog:
+  level: debug
+
+port: 8888
+index: 0
+
+pidfile: router.pid
+go_max_procs: 8
+
+redis_server: "127.0.0.1:6379"
+reload_uri_interval: 5

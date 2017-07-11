@@ -1,0 +1,7 @@
+# pack-refs with: peeled 
+fe07f64fd1fd25f3c920e9183edd71de6895f1d8 refs/tags/v1.0.0
+ee53c186767bf90a765db3360d543b97f42564ce refs/remotes/origin/wip-remove-spew
+f7958f8c1d84d7a646e3fb3192339eeaabd545fc refs/remotes/origin/spikes/default-tags-111803840
+566965a4f337c6c72c0bc7f0854c564001bab69e refs/remotes/origin/master
+24009edcd61f1fc2337357234ccd9f7e0e76d9be refs/remotes/origin/dropsonde-forwarding
+57a1be2eeed9b76b34e8f3f435421f640e822a48 refs/remotes/origin/bugs/burst-output-129465537

@@ -1,0 +1,6 @@
+# pack-refs with: peeled 
+89292b1cf386f380143c2fe17a1d4050bc54e5ad refs/tags/scotty_09012012
+^06b5fbef8f9d98337a105b5f064f26b36ee4309c
+d04fc71d28795e0d4acc634d49e60135c7c70827 refs/remotes/origin/travis_build
+6345b21d30b5f3d8d820e09d8f6bc13108050cb5 refs/remotes/origin/travis
+0c8581caea35ac903728230e447792e2365dcc34 refs/remotes/origin/master

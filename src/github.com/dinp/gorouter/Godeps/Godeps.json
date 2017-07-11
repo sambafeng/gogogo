@@ -1,0 +1,39 @@
+{
+	"ImportPath": "github.com/dinp/gorouter",
+	"GoVersion": "go1.4",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gogo/protobuf/proto",
+			"Rev": "6c980277330804e94257ac7ef70a3adbe1641059"
+		},
+		{
+			"ImportPath": "github.com/cloudfoundry-incubator/candiedyaml",
+			"Rev": "39fb5c673e898bc3343f306217f91f485c40a831"
+		},
+		{
+			"ImportPath": "github.com/cloudfoundry/dropsonde",
+			"Rev": "510a77a445ec3319a67ad427320de767b0168509"
+		},
+		{
+			"ImportPath": "github.com/cloudfoundry/gosteno",
+			"Comment": "scotty_09012012-41-g5c1406e",
+			"Rev": "5c1406e9ea0ab919f92e1b194169565def41147b"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/internal",
+			"Rev": "785e0ca9319196b94fd61abd4c9eab5c11777377"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/redis",
+			"Rev": "785e0ca9319196b94fd61abd4c9eab5c11777377"
+		},
+		{
+			"ImportPath": "github.com/nu7hatch/gouuid",
+			"Rev": "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
+		},
+		{
+			"ImportPath": "github.com/rcrowley/go-metrics",
+			"Rev": "dc42d45218778850334afa8c0758e3e00ebf6f22"
+		}
+	]
+}

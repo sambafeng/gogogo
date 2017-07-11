@@ -1,0 +1,22 @@
+# pack-refs with: peeled 
+a0583e0143b1624142adab07e0e97fe106d99561 refs/tags/v1.3
+a732e14c62dde3285440047bba97581bc472ae18 refs/tags/v1.2
+9a7aa3606b82e2081a13a008ada88dfdb96c20fd refs/tags/v1.1
+dfcba35e8da88b7b40a27aadc58ec7d991cc005f refs/tags/v1.0.3
+fdeb5682f67d1859ae53d49ea4a1ac5d033fc747 refs/tags/v1.0.2
+25758184f55e6b8028ff2c35c6462f4c2a1881d9 refs/tags/v1.0.1
+^75bb76ec381d160c6b119bd8004a12979b0f2008
+22eaba4f618a14fef6300cd0ede8571c3402fcf7 refs/tags/v1.0
+^efc283619ef617521ca327d5253108ef06e3f969
+a07a61ee7cc19a28658b65ef30228ed9aa2fa44e refs/tags/beta5
+77acdcc72d10007d0491a94fab77d9d559ecb787 refs/tags/beta4
+234fdaf994fee5acc574f268eadaeb455ad9af54 refs/tags/beta3
+^a48f79b55b5a2107793c84c3bbd445138dc7f0d5
+a732e14c62dde3285440047bba97581bc472ae18 refs/remotes/origin/v1.2
+9a7aa3606b82e2081a13a008ada88dfdb96c20fd refs/remotes/origin/v1.1
+dfcba35e8da88b7b40a27aadc58ec7d991cc005f refs/remotes/origin/v1.0
+c76053dc886ec43f4b2c93d01c990a0d5deedc93 refs/remotes/origin/tlsconfig
+bf7f34fef176d890dfcc6e94319ac747291bc09a refs/remotes/origin/master
+57d5975141b3eab7daf977f698a82b894bf57199 refs/remotes/origin/columntype
+eeb0d988963ebd1fe66724f7391bfba85ddeb7b5 refs/remotes/origin/columns-counter
+db2a560a5067e3208f3b9610ed6449a16cd3bf54 refs/remotes/origin/alloc-pool

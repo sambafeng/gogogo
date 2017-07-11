@@ -1,0 +1,5 @@
+# pack-refs with: peeled 
+433969511232c397de61b1442f9fd49ec06ae9ba refs/tags/v1.1.0
+8873b2f1995f59d4bcdd2b0dc9858e2cb9bf0c13 refs/tags/v1.0.0
+9f3a0116c9f72c5a56f958206a43dc881b502c37 refs/remotes/origin/master
+761156e804cccecbbb61d8706858717d9f1599fe refs/remotes/origin/deflake

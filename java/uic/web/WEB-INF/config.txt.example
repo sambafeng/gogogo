@@ -1,0 +1,15 @@
+jdbcUrl = jdbc:mysql://127.0.0.1/uic?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = root
+password =
+devMode = false
+memcacheAddrs = 127.0.0.1:11211
+canRegister = false
+token =
+
+ldapEnabled = false
+ldapHost = ldap.company.com
+ldapBase = OU=x,DC=company,DC=com
+ldapPort = 389
+ldapUid = sAMAccountName
+ldapBindDn =
+ldapPassword =
