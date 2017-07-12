@@ -168,8 +168,8 @@ docker.io和docker-engine的区别？
 从oracle官网下载或者直接安装openjdk都可以，我们用的JDK1.7，也可以用1.6，代码中没有使用1.7的特性，然后导出JAVA_HOME环境变量，比如
 
 ```
-`export JAVA_HOME=/path/to/your/jdk
-export PATH=$JAVA_HOME/bin:$PATH`
+export JAVA_HOME=/path/to/your/jdk
+export PATH=$JAVA_HOME/bin:$PATH
 ```
 
 2、安装Apache Ant
@@ -177,17 +177,17 @@ export PATH=$JAVA_HOME/bin:$PATH`
 下载解压缩，然后跟JDK类似，配置一下环境变量
 
 ```
-`export JAVA_HOME=/path/to/your/jdk
+export JAVA_HOME=/path/to/your/jdk
 export ANT_HOME=/path/to/your/ant
-export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH`
+export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH
 ```
 
 3、编译UIC代码
 
 ```
-`git clone https://github.com/UlricQin/uic.git
+git clone https://github.com/UlricQin/uic.git
 cd uic
-ant`
+ant
 ```
 
 build.xml是ant用到的编译配置文件，里边用的JDK1.7，如果你是JDK1.6，需要把build.xml中的1.7改成1.6
@@ -196,13 +196,13 @@ build.xml是ant用到的编译配置文件，里边用的JDK1.7，如果你是JD
 把URIEncoding配置到Connector上，防止乱码，端口也可以根据系统占用情况灵活分配，此处使用默认的8080
 
 ```
-`<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8" />`
+<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8" />
 ```
 
 然后去配置文件最下面找到`<Host>`标签，在里边增加`<Context>`标签
 
 ```
-`<Context path="" docBase="/path/to/uic/web" />`
+<Context path="" docBase="/path/to/uic/web" />
 ```
 
 5、修改UIC配置文件
@@ -233,15 +233,15 @@ yum -y install memcached
 9、上面八个步骤太繁琐了，直接 快捷方式，直接使用我的github。看下面
 
 ```
-`# 换成我的github是 https://github.com/chinesejie/gogogo下面的uic跟uic-tomcat
+# 换成我的github是 https://github.com/chinesejie/gogogo下面的uic跟uic-tomcat
 # 注意根路径是/home/pay/uic
 cd /home/pay
-git clone `https://github.com/chinesejie/`gogogo`
-cd `gogogo/java`
+git clone https://github.com/chinesejie/gogogo
+cd gogogo/java
 mv uic ../..
 mv uic-tomcat ../..
-vi ../../`````uic/web/WEB-INF/config.txt ```````# 记得修改下`uic/web/WEB-INF/config.txt```
-cd ../../uic-tomcat/bin && sh start.sh ``
+vi ../../uic/web/WEB-INF/config.txt # 记得修改下uic/web/WEB-INF/config.txt
+cd ../../uic-tomcat/bin && sh start.sh 
 ```
 
 > 二次开发
@@ -263,7 +263,7 @@ O了，UIC就给大家介绍这么多，之后会陆续介绍PaaS的其他组件
 这是Docker的一个SCM，存放Image用的，安装方式有多种，大家Google一下吧，最简单的安装方法是：
 
 ```
-`docker pull registry`
+docker pull registry
 ```
 
 当然了，拉取国外的image可能比较慢，大家可以找个国内的镜像用一用。
@@ -403,14 +403,14 @@ source ~/.bash_profile
 部署方式1：代码在 [这里](https://github.com/chinesejie/gogogo) ，这是个golang的项目，使用beego框架，安装起来也比较简单，就是通常的golang项目的编译方式
 
 ```
-`mkdir -p $GOPATH/src/github.com/dinp # 假设你已经配置好了GOROOT和GOPATH
+mkdir -p $GOPATH/src/github.com/dinp # 假设你已经配置好了GOROOT和GOPATH
 cd $GOPATH/src/github.com/dinp
 git clone https://github.com/dinp/builder.git
 cd builder
 go get ./...
 # 上面那个傻逼命令一定会有问题的。。此处强调beego用1.4.1版本，go-sql-driver/mysql用1.1版本
-# 使用cd github.com/astaxie/beego && git checkout -b tag_1.4.1 v1.4.1来导出`beego的``v1.4.1的代码
-`# `使用cd github.com/`go-sql-driver/mysql` && git checkout -b tag_1.1 v1.1来导出```mysql的````v1.1的代码``
+# 使用cd github.com/astaxie/beego && git checkout -b tag_1.4.1 v1.4.1来导出beego的v1.4.1的代码
+# 使用cd github.com/go-sql-driver/mysql && git checkout -b tag_1.1 v1.1来导出mysql的v1.1的代码
 go build
 mv conf/app.conf.example conf/app.conf
 # modify conf/app.conf
@@ -429,7 +429,7 @@ mv conf/app.conf.example conf/app.conf
 #tplmapping这个很重要，这是base image的配置，在registry中增加了base image，也要在此配置一下，这样用户才能在页面上看到
 #token，这是与UIC通信的凭证，与UIC的token配置成一样即可
 #最后是启动命令；
-./builder`
+./builder
 ```
 
 > @@@@@@@@@>>>>git 怎么checkout tag>>>>@@@@@@@@@
@@ -457,15 +457,15 @@ nohup ./builder &  ##即可启动builder，端口是8788。。
 这个dashboard 可以部署images。最简单的部署方式：
 
 ```
-`# 换成我的github是 https://github.com/chinesejie/gogogo下面的dash跟dash-tomcat
+# 换成我的github是 https://github.com/chinesejie/gogogo下面的dash跟dash-tomcat
 # 注意根路径是/home/pay/dash
 cd /home/pay
-git clone `https://github.com/chinesejie/`gogogo`
-cd `gogogo/java`
+git clone https://github.com/chinesejie/gogogo
+cd gogogo/java
 mv dash ../..
 mv dash-tomcat ../..
-vi ../../dash`````/web/WEB-INF/config.txt ```````# 记得修改下`dash/web/WEB-INF/config.txt```
-cd ../../dash-tomcat/bin && sh start.sh  # 默认端口8180``
+vi ../../dash/web/WEB-INF/config.txt # 记得修改下dash/web/WEB-INF/config.txt
+cd ../../dash-tomcat/bin && sh start.sh  # 默认端口8180
 ```
 
 下面说下dashboard的配置：：
@@ -492,14 +492,14 @@ token = token1 # UIC_TOKEN、DOMAIN这两个配置需要和之前启动其他容
 部署方式1：
 
 ```
-`cd $GOPATH/src/github.com/dinp
+cd $GOPATH/src/github.com/dinp
 git clone https://github.com/dinp/server.git
-cd `server`
+cd server
 go get ./...
 # 上面那个傻逼命令一定会有问题的。。此处强调go-dockerclient用  git reset --hard 93458fdcb8791a25f61681b05b8aaba8018293d4
-# 使用cd `github.com/`fsouza/`go-dockerclient` && git reset --hard 93458fdcb8791a25f61681b05b8aaba8018293d4来导出 特定`代码
-`go build
-`mv cfg.example.json cfg.json
+# 使用cd github.com/fsouza/go-dockerclient && git reset --hard 93458fdcb8791a25f61681b05b8aaba8018293d4来导出 特定`代码
+go build
+mv cfg.example.json cfg.json
 ###TODO 修改配置，，使用dash的数据库
 ./server
 ```
@@ -507,10 +507,10 @@ go get ./...
 部署方式2：[已经git clone https://github.com/chinesejie/gogogo了]
 
 ```
-`cd /root/gogogo/src/github.com/dinp
-cd `server`
+cd /root/gogogo/src/github.com/dinp
+cd server
 go get ./...
-go build`
+go build
 ./server
 ```
 
@@ -553,14 +553,14 @@ go build`
 部署方式1：
 
 ```
-`cd $GOPATH/src/github.com/dinp
+cd $GOPATH/src/github.com/dinp
 git clone https://github.com/dinp/agent
-cd `agent`
+cd agent
 go get ./...
 # 上面那个傻逼命令一定会有问题的。。此处强调go-dockerclient用  git reset --hard 93458fdcb8791a25f61681b05b8aaba8018293d4
-# 使用cd `github.com/`fsouza/`go-dockerclient` && git reset --hard 93458fdcb8791a25f61681b05b8aaba8018293d4来导出 特定`代码
-`go build
-`mv cfg.example.json cfg.json
+# 使用cd github.com/fsouza/go-dockerclient && git reset --hard 93458fdcb8791a25f61681b05b8aaba8018293d4来导出 特定`代码
+go build
+mv cfg.example.json cfg.json
 ###TODO 修改配置，，使用dash的数据库
 ./agent
 ```
@@ -568,10 +568,10 @@ go get ./...
 部署方式2：[已经git clone https://github.com/chinesejie/gogogo了]
 
 ```
-`cd /root/gogogo/src/github.com/dinp
+cd /root/gogogo/src/github.com/dinp
 cd agent
-`go get ./...`
-go build`
+go get ./...
+go build
 ./agent
 ```
 
@@ -598,18 +598,18 @@ gorouter 是最麻烦的。因为
 部署方式1：
 
 ```
-`cd $GOPATH/src/github.com/dinp
+cd $GOPATH/src/github.com/dinp
 git clone https://github.com/dinp/gorouter
 cd gorouter
 go get ./...
 # 上面那个傻逼命令一定会有问题的。。此处强调 github.com/cloudfoundry/dropsonde用  git reset --hard 7d86dc6d1293ead3a00866030f77ba83577682e9
 # 使用cd github.com/cloudfoundry/dropsonde && git reset --hard 7d86dc6d1293ead3a00866030f77ba83577682e9来导出 特定`代码
-`// 然后用“
+// 然后用“
 //sed -i 's/code\.google\.com\/p\/gogoprotobuf/github\.com\/gogo\/protobuf/g' `grep code\.google\.com\/p\/gogoprotobuf -rl ./`
-//” 这句话来替换`code.google.com/``gogoprotobuf的代码。。。`
+//” 这句话来替换code.google.com/gogoprotobuf的代码。。。
 
 go build
-`mv example_config/example.yml config/router.yml
+mv example_config/example.yml config/router.yml
 
 ###TODO 修改配置，，使用redis
 ./gorouter -c=config/router.yml
@@ -619,10 +619,10 @@ go build
 部署方式2：[已经git clone https://github.com/chinesejie/gogogo了]
 
 ```
-`cd /root/gogogo/src/github.com/dinp
+cd /root/gogogo/src/github.com/dinp
 cd gorouter
-`go get ./...`
-go build`
+go get ./...
+go build
 ./gorouter -c=config/router.yml
 ```
 
@@ -750,7 +750,7 @@ docker ps -a #-a，查看所有容器包括停止状态的容器
 docker kill fd3c0c622af6 #停止正在运行的容器
 docker rm fd3c0c622af6 #停止容器
 docker ps #查看所有正在运行中的容器，不加参数
-docker pull `registry`#从远端拉取一个image
+docker pull registry#从远端拉取一个image
 # github.com/cloudfoundry/dropsonde用这个版本2cc29e4670b8205a1c25e751cf9ffb38813eba28
 
 ```
