@@ -1,13 +1,21 @@
-# 2、Dinp安装攻略
+# Dinp安装攻略
+## -2、架构图
+
+[![env ports](https://raw.githubusercontent.com/chinesejie/gogogo/master/images/arche.png)](https://github.com/chinesejie/gogogo)
+
+a. 用户把代码打包为.tar.gz，交给Builder打包为一个Docker image
+b. 拿到Builder产出的Docker image去Dashboard创建一个App，设置好实例数、内存大小、image地址，O了。Dashboard把用户填写的这些信息写入MySQL
+c. Server定期从MySQL同步用户期望的数据，姑且称之为desired state
+d. 部署在所有计算节点的Agent与Server之间有心跳通信，收集本机的剩余内存量和container列表，姑且称之为real state
+e. Server对比desired state和real state，发现某个App的实例数少了就去调度新的计算节点创建新实例，如果发现某个App实例数多了，就干掉多余的实例
+f. Server同时会分析real state，组织出路由信息写入redis
+g. Router定期从redis中获取路由信息
+h. Router通常部署多个，前面部署LVS，注册一个域名，比如apps.io，把*.apps.io这个泛域名解析到LVS VIP，整个流程就通了
+
 
 ## -1、环境配置【下面就为了实验，把所有的组件往一个机器110.95.241.31安装】
 
-组件	类型	web http端口	redirect端口[遇https就转]	shutdown端口	AJP端口	rpc端口
-dash	java-tomcat	8180	8443	8015	8109	无
-UIC	java-tomcat	8080	8443	8005	8009	无
-builder	go	8788	无	无	无	无
-server	go	8980	无	无	无	8970
-gorouter	go	80[兼容升级到tcp]	无	无	无	
+[![env ports](https://raw.githubusercontent.com/chinesejie/gogogo/master/images/ports.png)](https://github.com/chinesejie/gogogo)
 
 
 
@@ -692,19 +700,19 @@ cd Dockerfile/php，编辑build文件，将REGISTRY=registry.com:5000改成REGIS
 TAG在docker是什么，这里就不多说了。。docker的只是自己去补充。。
 
 再观察下 docker images ，发现又多了两个镜像【root/app5 跟 127.0.0.1/root/app5，仔细观察，可以发现这两货的image id是一样的。。】
-[Image: file:///-/blob/aIQAAAbQi0f/hPXtdI6hONCk6kYO_DpdGA]
+[Image: https://raw.githubusercontent.com/chinesejie/gogogo/master/images/docker-images.png]
 
 
 ## 15.发布发布—发布前创建一个app
 
 访问外网IP:8180，进入dashboard平台。点击“create app”按钮，Dinp设定每一个app都应该属于UIC中的一个Team，所以需要先在UIC里创建一个Team，**_在Dashboard页面上点击“Create Team”会自动前往UIC[外网IP:8080]创建Team页面，_**Team名称填team1，成员加上root，点击“创建”即可。回到创建App页面，刷新之后就可以看到有team1这个Team了，App名字填app5，Health interface留空即可。
-[Image: file:///-/blob/aIQAAAbQi0f/3feXkPCMfYTCukfmcmg8uA]
+[Image: https://raw.githubusercontent.com/chinesejie/gogogo/master/images/dash-application.png]
 ## 16. 发布发布—发布时候的deploy
 
 点击上图的dashboard的deploy链接，
 进入页面填写参数如下：内存填256MB，个数填写1，images填写127.0.0.1:5000/root/app5💯 
 点击submit，就能发布了。。如下图：
-[Image: file:///-/blob/aIQAAAbQi0f/1R4z25skpiPEuWxlK-2fjQ]1）搭建服务器bind 120.95.241.31 ，然后把*.apps.io的泛域名A记录到实验机器上110.95.241.31 。
+[Image: https://raw.githubusercontent.com/chinesejie/gogogo/master/images/dash-deploy.png]1）搭建服务器bind 120.95.241.31 ，然后把*.apps.io的泛域名A记录到实验机器上110.95.241.31 。
 
 2）在实验机器上110.95.241.31 上vi/etc/resolv.conf，设置nameserver 为bind地址bind 120.95.241.31 。
 
