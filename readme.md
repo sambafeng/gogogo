@@ -1,4 +1,7 @@
 # Dinp安装攻略
+## 企业架构图
+[![env ports](https://raw.githubusercontent.com/chinesejie/gogogo/master/images/company_arche.png)](https://github.com/chinesejie/gogogo)
+
 ## -2、架构图
 
 [![env ports](https://raw.githubusercontent.com/chinesejie/gogogo/master/images/arche.png)](https://github.com/chinesejie/gogogo)
